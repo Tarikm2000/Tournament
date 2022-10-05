@@ -9,16 +9,17 @@ public class League extends Competition {
 	public League (List<Competitor> competitores){
         super(competitores);
     }
-
+    
+    
     @Override
-    public void play (List<Competitor> competitores){
-        for(int i=0;i<this.competitors.size();i++){
-            for (int j=0;j<this.competitors.size();j++){
-                if (i !=j){
-                    playMatch(this.competitors.get(i),this.competitors.get(j));
+    public void play (List<Competitor> competitores) {
+        for(Competitor comp1 : competitores){
+            for (Competitor comp2 : competitores){
+                if (comp1 != comp2){
+                    playMatch(comp1,comp2);
                 }
             }
         }
     }
-
+    
 }

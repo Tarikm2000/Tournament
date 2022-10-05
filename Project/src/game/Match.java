@@ -32,7 +32,8 @@ public  class Match {
         int w=random.nextInt(2);
         if (w==0){
             return teamA;
-        }else {
+        }
+        else {
             return teamB;
         }
     }

@@ -1,9 +1,9 @@
- package gamers;
+package gamers;
 
 public class Competitor {
 
     private String name;
-    //private Int points;
+    
 
     public Competitor (String name){
         this.name=name;
@@ -22,7 +22,7 @@ public class Competitor {
 
 
     public String toString (){
-        return " l'equipe " + this.name ;  
+        return this.name ;  
     }
 
 }
