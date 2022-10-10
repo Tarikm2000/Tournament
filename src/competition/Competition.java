@@ -1,7 +1,7 @@
 package competition;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.*;
+
 import exceptions.NotPowerOfTwoException;
 
 import util.MapUtil;
@@ -16,7 +16,9 @@ public abstract class Competition {
     protected final Map <Competitor,Integer> nb_points;
     
 
-  
+    /**construct a competetition ,at the  beginning each team has 0 points and played 0 match
+     * @param competitores the competitors that will participate at the competetion  
+     */
     public Competition(List<Competitor> competitores){
         this.competitors=competitores;
         this.nb_points=new HashMap<Competitor,Integer>();
@@ -28,7 +30,32 @@ public abstract class Competition {
     }
 
 
+     /**
+     * see how many much points a competitor c has
+     * @param c the competitor we want to see how much points he has
+     * @return number of points a competitor c has
+     */
+    public int getNbPoints(Competitor c) {
+        return this.nb_points.get(c);
+    }
 
+
+    /**
+     * see how many matchs a competitor c played
+     * @param c the competitor we want to see how many matchs he played
+     * @return number of matchs a competitor c played
+     */
+    public int getNbMatch(Competitor c){
+        return this.nb_matchs.get(c);}
+
+
+
+     /**
+     * returns the winner of the match beetween two competitores
+     * @param c1 the  competitor to play a match 
+     * @param c2 the second competitor to play the match
+     * @return winner of the match beetween the two competitors
+     */
     protected Competitor playMatch(Competitor c1,Competitor c2){
         Match m=new Match(c1,c2);
         Competitor winner= m.winner();
@@ -42,39 +69,50 @@ public abstract class Competition {
         return winner;
 
     }
-
-
-    public int getNbMatch(Competitor c){
-        return this.nb_matchs.get(c);}
+    
 
     
     
-    protected abstract void play(List<Competitor> l) throws NotPowerOfTwoException ;
-    
 
+    
+    
+    /** 
+     * play the competition either a tournament or a league
+     * @param   l  the competitors that will particpate at the competition 
+     * @throws NotPowerOfTwoException if an exception occurred
+    */
+    protected abstract void  play(List<Competitor> l) throws NotPowerOfTwoException ;
+     
+
+    /**
+     * order an hashmap by values from the highest  to the lowest 
+     * @return the hashmap ordered from the competitor who has the highes points to the lowest 
+     */
     public Map<Competitor,Integer> ranking(){
         
         Map <Competitor, Integer> result = MapUtil.sortByDescendingValue(this.nb_points);
         for (Map.Entry m : result.entrySet()) {
             System.out.println(" " + m.getKey()  + " - " + m .getValue());
         }
-     
-        return result;
+      return result;
     }
 
-    
-    public Map<Competitor,Integer> nb_of_match() {
-        for (Map.Entry m : this.nb_matchs.entrySet()) {
-            System.out.println(m.getKey() + " played " + m.getValue() + " Matchs ");
+    /** 
+     * get the winner of competetion (league)
+     * @return the winner of the competition
+    */
+    public Competitor finalWinner() {
+        List<Competitor> res =  new ArrayList<>();
+        for (Competitor m : this.ranking().keySet()){
+            res.add(m);
         }
-        return this.nb_matchs;
+        return res.get(0);
     }
-	
     
 
-    
-    
-    
+     /**
+     * play the competition ,League or Tournament
+     */
     public void play() throws NotPowerOfTwoException {
         this.play(this.competitors);
     }

@@ -8,7 +8,15 @@ import java.util.List ;
 import java.util.Map;
 import java.util.Map.Entry ;
 
+/**Provides a method to sort a Map by its values from the highest to the lowest , used to make rankings.*/
 public class MapUtil {
+
+
+
+    /** sort a Map by its values from the highest to the lowest 
+	 *@param map map of competitors
+	 *@return the sorted map 
+	 */
     public static <K, V extends Comparable<? super V>> Map<K, V> sortByDescendingValue(Map<K, V> map) {
         List<Entry<K, V>> sortedEntries = new ArrayList<Entry<K, V>>(map. entrySet ( ) ) ;
         

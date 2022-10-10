@@ -58,19 +58,18 @@ public class Main {
 				System.out.println(e);
 			}
 		
-			//System.out.println("*** Nombres de matchs joué (League) ***");
-			//cmp1.nb_of_match(); (on a juste vérifié qu'on a bien eu 14 matchs pour chaque équipe)
+			
 			System.out.println("\n");
 			System.out.println("*** Rankings ***\n");
 			cmp1.ranking();
-
+			//System.out.println(cmp1.finalWinner());
+			
     	}
 		else if (actionInt==2) {
 			try {
 				System.out.println("***Le deroulement du tournoi***");
 				cmp2.play();
 				System.out.println("\n");
-				cmp2.nb_of_match();
 			}
 			catch(Exception e){
 				System.out.println(e);
