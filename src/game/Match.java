@@ -3,8 +3,8 @@ import gamers.Competitor;
 import java.util.Random;
  
 public  class Match {
-    public Competitor teamA;
-    public Competitor teamB;
+    private Competitor teamA;
+    private Competitor teamB;
 
     /**create a Match beetween 
     *@param teamA the competior of the match
