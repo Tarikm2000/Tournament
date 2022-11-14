@@ -10,6 +10,9 @@ public class Tournament extends Competition {
 
     
     
+    /** Constructor of a tournament 
+     * @param competitors competitors of the tournament
+     */
     public Tournament (List<Competitor> competitors){
         super(competitors);
 
@@ -18,7 +21,7 @@ public class Tournament extends Competition {
 
     /**
      * check if a number is power of two
-     * @param the numeber we want to check if it's of power two
+     * @param n numeber we want to check if it's of power two
      * @return true if a number is power of two ,else return false 
      */
     public boolean PowerOfTwo(int n){
@@ -38,10 +41,10 @@ public class Tournament extends Competition {
 
     /**
      * play all the games of the tournament     
-     * @param the competitores of the league 
+     * @param  competitors of the Tournament
      * @throws NotPowerOfTwoException if the number of competitors of the tournament is not power of two 
      */
-    //int matchs_tournament=0;
+    
     @Override
     public void  play (List<Competitor> competitors) throws NotPowerOfTwoException {
         
@@ -55,9 +58,9 @@ public class Tournament extends Competition {
         
         if (competitors.size()==1) {
         	res.add(competitors.get(0));
-            System.out.println("\n");
-            System.out.println(" the winner  of the Tournament is " + res.get(0));
-            System.out.println("\n");
+            //System.out.println("\n");
+            //System.out.println(" the winner  of the Tournament is " + res.get(0));
+            //System.out.println("\n");
             //System.out.println(" le nombre de matchs joué dans ce tournoi est :" + matchs_tournament);
         }
         else {
@@ -80,11 +83,12 @@ public class Tournament extends Competition {
         		
         	}
         	System.out.println(" the winner after each round " + res);
+            System.out.println("\n");
         	this.play(res);
         	
         }
         
-        //return matchs_tournament;
+       
     }
 
     

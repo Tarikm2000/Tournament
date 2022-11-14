@@ -77,7 +77,7 @@ public abstract class Competition {
     
     
     /** 
-     * play the competition either a tournament or a league
+     * play the competition either a tournament ,league or master 
      * @param   l  the competitors that will particpate at the competition 
      * @throws NotPowerOfTwoException if an exception occurred
     */
@@ -91,10 +91,7 @@ public abstract class Competition {
     public Map<Competitor,Integer> ranking(){
         
         Map <Competitor, Integer> result = MapUtil.sortByDescendingValue(this.nb_points);
-        for (Map.Entry m : result.entrySet()) {
-            System.out.println(" " + m.getKey()  + " - " + m .getValue());
-        }
-      return result;
+        return result;
     }
 
     /** 
@@ -102,11 +99,16 @@ public abstract class Competition {
      * @return the winner of the competition
     */
     public Competitor finalWinner() {
+        Map <Competitor,Integer> result = this.ranking();
+        /*
         List<Competitor> res =  new ArrayList<>();
         for (Competitor m : this.ranking().keySet()){
             res.add(m);
         }
         return res.get(0);
+        */
+        Iterator<Competitor> it = result.keySet().iterator();
+        return it.next();
     }
     
 
@@ -117,6 +119,15 @@ public abstract class Competition {
         this.play(this.competitors);
     }
 
-
-
-}
+     
+    /**
+     * Display the ranking 
+     */
+    public void displayRanking(){
+        
+        Map <Competitor,Integer> rank = this.ranking();
+        for (Map.Entry m : rank.entrySet()) {
+            System.out.println(" " + m.getKey()  + " - " + m .getValue());
+        }
+    }
+}   

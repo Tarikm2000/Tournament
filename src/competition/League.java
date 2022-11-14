@@ -15,6 +15,8 @@ public class League extends Competition {
         super(competitors);
     }
     
+
+
     /**
      * play all the games of the league
      * @param competitors the  competitores of the league 
@@ -30,6 +32,8 @@ public class League extends Competition {
             }
         }
     }
+
+   
 
 
    

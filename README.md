@@ -1,4 +1,13 @@
-           
+# L3_COO_Lekhal_Moulouel
+
+
+
+
+## NOM DU BINOME 
+
+Lekhal Massinissa           
+
+Moulouel Tarik              
 
 
 
@@ -13,10 +22,13 @@
 
 Il faut se placer dans la racine du projet (aprés avoir récuperé "cloné" le depot avec) et taper les commandes suivantes (également présentes dans le makefile )
 
+### Récuperer le depot 
+
+```git clone git@gitlab-etu.fil.univ-lille.fr:massinissa.lekhal.etu/l3_coo_lekhal_moulouel.git```
 
 ### Génerer la documentation
 
-```javadoc -sourcepath src -d docs -subpackages competition game gamers util exception```
+```javadoc -sourcepath src -d docs -subpackages competition game gamers util exceptions selectiontype```
 
 Et insuite faut aller dans docs/index.html pour consulter la documentation 
 
@@ -24,9 +36,14 @@ Et insuite faut aller dans docs/index.html pour consulter la documentation
 
 ```javac -sourcepath src -d classes src/*.java```
 
-### Lancer le jeu (Executer le main )
+### Lancer la ligue et le tournoi
 
 ```	java -classpath classes Main ```
+
+### Lancer le Master 
+   
+   ```	java -classpath classes MasterMain ```
+   
 
 ### Compiler les tests 
 
@@ -36,13 +53,24 @@ Et insuite faut aller dans docs/index.html pour consulter la documentation
 
 ```java -jar junit-platform-console-standalone-1.9.1.jar -cp classes --scan-class-path```
 
-### Generer l'archive 
+### Generer l'archive Ligue et Tournoi
 
 ```jar cvfe jeu.jar Main -C classes .```
 
-### Executer l'archive 
+### Generer l'archive pour le Master 
+
+ ```jar cvfe Master.jar MasterMain -C classes .```
+
+### Executer l'archive  de la ligue et Tournoi
 
 ```java -jar jeu.jar```
+
+### Executer l'archive pour le Master 
+
+```java -jar Master.jar```
+
+
+
 
 
 ### On a ajouté un Makefile pour utiliser les commandes précedentes 
@@ -51,9 +79,36 @@ Et insuite faut aller dans docs/index.html pour consulter la documentation
 
 
 
-## UML 
+## UML LIVRABLE 1
 
 ![DiagrammeUML_Livrable 1.png](../Diagrammes_UML/DiagrammeUML_Livrable 1.png)
 
+
+
+### PRISE EN COMPTE DES REMARQUES DU LIVRABLE 1 :
+
+  -Correction des warnnings de la javadoc .
+
+  -Correction de la commande pour générer la javadoc. 
+
+  -Indications sur les tests.
+
+  -Les attributs de matchs sont désormais en private.
+
+  -Variation du nombre de compétiteurs .
+
+  -Affichage du classement à la fin du Turnoi. 
+
+  -On a changé la boucle for dans la méthode finalwinner et on l'a remplacé avec un itérateur avec un seul next pour prendre le premier qui sera le vainqeur . 
+
+
+
+## UML LIVRABLE 2
+  
+
+  ![Livrable2.png](../Diagrammes_UML/Livrable2.png)
+ 
+  
+    
 
 
