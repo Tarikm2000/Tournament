@@ -3,11 +3,6 @@
 
 
 
-## NOM DU BINOME 
-
-Lekhal Massinissa           
-
-Moulouel Tarik              
 
 
 
