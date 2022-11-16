@@ -14,12 +14,6 @@
 
 ## HOW TO 
 
-Il faut se placer dans la racine du projet (aprés avoir récuperé "cloné" le depot avec) et taper les commandes suivantes (également présentes dans le makefile )
-
-### Récuperer le depot 
-
-```git clone git@gitlab-etu.fil.univ-lille.fr:massinissa.lekhal.etu/l3_coo_lekhal_moulouel.git```
-
 ### Génerer la documentation
 
 ```javadoc -sourcepath src -d docs -subpackages competition game gamers util exceptions selectiontype```
