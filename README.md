@@ -67,9 +67,7 @@ Et insuite faut aller dans docs/index.html pour consulter la documentation
 
 
 
-## UML LIVRABLE 1
 
-![DiagrammeUML_Livrable 1.png](../Diagrammes_UML/DiagrammeUML_Livrable 1.png)
 
 
 
@@ -91,10 +89,8 @@ Et insuite faut aller dans docs/index.html pour consulter la documentation
 
 
 
-## UML LIVRABLE 2
   
 
-  ![Livrable2.png](../Diagrammes_UML/Livrable2.png)
  
   
     
