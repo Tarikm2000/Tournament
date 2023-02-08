@@ -16,5 +16,5 @@ public interface SelectionInterface {
      * @param winners List of Competitores of each Group 
      * @return Competitores that will go to final stage 
      */
-    public  List<Competitor> selection (List<List<Competitor>> winners);
+    public  List<Competitor> selection (List<League> winners);
 } 

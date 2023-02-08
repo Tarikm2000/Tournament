@@ -10,11 +10,12 @@ import gamers.Competitor;
 
 import exceptions.NotPowerOfTwoException;
 import java.util.*;
+import observer.*;
 
 public class MockCompetition extends Competition {
     public int nb_called = 0;
     
-    public MockCompetition(List<Competitor> competitors) {
+    public MockCompetition(List<Competitor> competitors,Journalists journalist) {
     	super(competitors);
     }
     

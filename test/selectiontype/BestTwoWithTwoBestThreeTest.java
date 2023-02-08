@@ -20,7 +20,7 @@ public class BestTwoWithTwoBestThreeTest {
   private  List <Competitor> competitors2;
   private  List<Competitor> competitors3;
   private SelectionInterface s;
-  private List<List<Competitor>> res;
+  private List<League> res;
 
   @Before
   public void before() {
@@ -65,10 +65,10 @@ public class BestTwoWithTwoBestThreeTest {
 
 
     this.s=new BestTwoWithTwoBestThree();
-    this.res=new ArrayList<List<Competitor>>();
-    this.res.add(competitors1);
-    this.res.add(competitors2);
-    this.res.add(competitors3);
+    this.res=new ArrayList<League>();
+    this.res.add(new League(competitors1));
+    this.res.add(new League (competitors2));
+    this.res.add(new League (competitors3));
 
     }
 

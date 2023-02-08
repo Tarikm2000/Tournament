@@ -1,6 +1,7 @@
 package competition;
 import java.util.List;
 import gamers.Competitor;
+import observer.*;
 
 
 
@@ -11,8 +12,9 @@ public class League extends Competition {
      * @param competitors the competitors that will participate in the league 
      */
 	
-	public League (List<Competitor> competitors){
+	public League (List<Competitor> competitors ){
         super(competitors);
+
     }
     
 

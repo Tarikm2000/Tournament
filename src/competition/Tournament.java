@@ -5,6 +5,7 @@ import game.Match;
 import java.util.List;
 import exceptions.NotPowerOfTwoException;
 import java.util.ArrayList;
+import observer.*;
 
 public class Tournament extends Competition {
 

@@ -9,6 +9,7 @@ import competition.Competition;
 import gamers.Competitor;
 import game.Match;
 import java.util.*;
+import observer.*;
 
 public abstract class CompetitionTest {
 
@@ -18,6 +19,7 @@ public abstract class CompetitionTest {
   protected  Competitor c4;
   protected  List <Competitor> competitors;
   protected Competition competition;
+  protected Journalists journalist;
   
   protected abstract Competition createCompetition(List<Competitor> competitors);
   
@@ -26,8 +28,9 @@ public abstract class CompetitionTest {
     this.competitors =new ArrayList<Competitor>();
     this.c1 = new Competitor("LOSC");
 		this.c2 = new Competitor("RC LENS");
-    this.c3=new Competitor("FC LIVERPOOL");
-    this.c4=new Competitor("FC BAYERN");
+    this.c3 = new Competitor("FC LIVERPOOL");
+    this.c4 = new Competitor("FC BAYERN");
+    this.journalist = new Journalists("Massi");
     this.competitors.add(this.c1);
     this.competitors.add(this.c2);
     this.competitors.add(this.c3);
@@ -68,7 +71,7 @@ public abstract class CompetitionTest {
 
   @Test
   public void testPlay() {
-    MockCompetition myMuck = new MockCompetition(competitors);
+    MockCompetition myMuck = new MockCompetition(competitors,journalist);
     assertEquals(0,myMuck.nb_called);
     try{
       myMuck.play(this.competitors);

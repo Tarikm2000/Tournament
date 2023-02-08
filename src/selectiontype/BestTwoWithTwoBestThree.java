@@ -5,6 +5,7 @@ import competition.Competition;
 import competition.League;
 import gamers.Competitor;
 import util.MapUtil;
+import observer.*;
 
 import java.util.*;
 
@@ -14,15 +15,16 @@ public class BestTwoWithTwoBestThree implements SelectionInterface {
      * @winners   competitores of the competetion
      * @return Competitors selected to play the final stage 
      */
-    public List<Competitor> selection (List<List<Competitor>> winners) {
+    public List<Competitor> selection (List<League> winners) {
         List<Competitor> result = new ArrayList<Competitor>();
         Map<Competitor,Integer> resultinter =new HashMap<Competitor,Integer>();
+        //Journalists journalist = new Journalists(null); 
         
 
         for (int i=0;i<winners.size();i++) {
-            Competition cmp = new League(winners.get(i));
+            Competition cmp = winners.get(i);
             try {
-                cmp.play();
+                //cmp.play();
                 System.out.println( " \n RANKING AFTER GROUP STAGE :  \n");
                 cmp.displayRanking();
             }

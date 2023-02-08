@@ -4,6 +4,7 @@ import java.util.*;
 import exceptions.*;
 import gamers.Competitor;
 import selectiontype.SelectionInterface;
+import observer.*;
 
 
 public class Master extends Competition {
@@ -17,7 +18,7 @@ public class Master extends Competition {
      * @param nbGroup  number of groupes during the first stage
      * @param selection selction methid that will be used of to derminate  competitores that will play final stage
      */
-    public Master(List<Competitor> competitors, int nbGroup , SelectionInterface selection) {
+    public Master(List<Competitor> competitors, int nbGroup ,SelectionInterface selection) {
         super(competitors);
         this.nbGroup=nbGroup;
         this.selection=selection;
@@ -40,7 +41,7 @@ public class Master extends Competition {
     /** divide all the competitors into groups to play poolstage 
      * @return List of competitores divided into pools ,the first list is the first pool ,the second list is the second pool ...
      */
-    public List<List<Competitor>> partitionGroups() {
+    public List<League> partitionGroups() {
         
         List<List<Competitor>> result = new ArrayList<List<Competitor>>();
         int nbTeamEachGroup = this.competitors.size()  / this.nbGroup ;
@@ -65,8 +66,12 @@ public class Master extends Competition {
         while (it.hasNext()){
             result.get(0).add(it.next());
         }
-
-        return result;
+        List<League> resultfinal = new ArrayList<>();
+        for (List<Competitor> l : result){
+            resultfinal.add(new League(l));
+        }
+        
+        return resultfinal;
     }
     
 
@@ -76,9 +81,28 @@ public class Master extends Competition {
      */
     @Override
     public void play(List<Competitor> l) throws NotPowerOfTwoException{
-        List<List<Competitor>> poules = this.partitionGroups();
+        List<League> poules = this.partitionGroups();
+
+        // créer les leagues
+        // play() sur les leagyes
+        for(League l1 :poules){
+            for(ObserverInterface o : this.observers){
+                l1.addObserver(o);
+            }
+            l1.play();
+            // recuperer le nb de points de chaque competitors
+            for (Competitor c : l1.ranking().keySet()) {
+                this.nb_points.put(c,l1.ranking().get(c));
+            }
+        }
         List<Competitor> gagnats = this.getSelection().selection(poules);
         Competition cmp = new Tournament(gagnats);
+        
+        for(ObserverInterface o : this.observers){
+            cmp.addObserver(o);
+        }
+        
+        // ajouter à cmp les observers de la compétitions
         try {
             cmp.play();
         }

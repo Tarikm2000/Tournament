@@ -1,12 +1,13 @@
 package competition;
 import java.util.*;
-import java.util.*;
+
 
 import exceptions.NotPowerOfTwoException;
 
 import util.MapUtil;
 import game.Match;
 import gamers.Competitor;
+import observer.*;
 
 
 
@@ -14,7 +15,7 @@ public abstract class Competition {
     protected final List<Competitor> competitors;
     protected final Map<Competitor,Integer> nb_matchs;
     protected final Map <Competitor,Integer> nb_points;
-    
+    protected List <ObserverInterface> observers;
 
     /**construct a competetition ,at the  beginning each team has 0 points and played 0 match
      * @param competitores the competitors that will participate at the competetion  
@@ -23,6 +24,7 @@ public abstract class Competition {
         this.competitors=competitores;
         this.nb_points=new HashMap<Competitor,Integer>();
         this.nb_matchs=new  HashMap<Competitor,Integer>(); 
+        this.observers=new ArrayList<ObserverInterface>();
             for (Competitor c : competitors){
                 this.nb_matchs.put(c,0);
                 this.nb_points.put(c,0);
@@ -65,7 +67,9 @@ public abstract class Competition {
         this.nb_points.replace(winner,points+1);
         this.nb_matchs.replace(c1,match_c1+1);
         this.nb_matchs.replace(c2,match_c2+1);
+        System.out.println("\n");
         System.out.println(" " + c1.getName() + " vs " + c2.getName() + " --> " + winner.getName() + " wins ! ");
+        this.updateAll(m);
         return winner;
 
     }
@@ -127,7 +131,21 @@ public abstract class Competition {
         
         Map <Competitor,Integer> rank = this.ranking();
         for (Map.Entry m : rank.entrySet()) {
-            System.out.println(" " + m.getKey()  + " - " + m .getValue());
+            System.out.println(" " + m.getKey()  + " - " + m .getValue() + " points ");
         }
+    }
+
+
+
+    public void updateAll(Match match){
+        for (ObserverInterface observer: this.observers){
+            observer.update(match);
+        }
+    }
+
+
+
+    public void addObserver(ObserverInterface observer){
+        this.observers.add(observer);
     }
 }   

@@ -1,7 +1,4 @@
-
-
-
-
+            
 
 
 
@@ -14,9 +11,12 @@
 
 ## HOW TO 
 
+Il faut se placer dans la racine du projet (aprés avoir récuperé "cloné" le depot avec) et taper les commandes suivantes (également présentes dans le makefile )
+
+
 ### Génerer la documentation
 
-```javadoc -sourcepath src -d docs -subpackages competition game gamers util exceptions selectiontype```
+```javadoc -sourcepath src -d docs -subpackages competition game gamers util exceptions selectiontype observer```
 
 Et insuite faut aller dans docs/index.html pour consulter la documentation 
 
@@ -24,14 +24,10 @@ Et insuite faut aller dans docs/index.html pour consulter la documentation
 
 ```javac -sourcepath src -d classes src/*.java```
 
-### Lancer la ligue et le tournoi
+### Lancer la ligue , le tournoi ,ou le master
 
 ```	java -classpath classes Main ```
-
-### Lancer le Master 
-   
-   ```	java -classpath classes MasterMain ```
-   
+ 
 
 ### Compiler les tests 
 
@@ -41,21 +37,16 @@ Et insuite faut aller dans docs/index.html pour consulter la documentation
 
 ```java -jar junit-platform-console-standalone-1.9.1.jar -cp classes --scan-class-path```
 
-### Generer l'archive Ligue et Tournoi
+### Generer l'archive Ligue , Tournoi ou Master
 
 ```jar cvfe jeu.jar Main -C classes .```
 
-### Generer l'archive pour le Master 
 
- ```jar cvfe Master.jar MasterMain -C classes .```
-
-### Executer l'archive  de la ligue et Tournoi
+### Executer l'archive  de la ligue , Tournoi ou Matser
 
 ```java -jar jeu.jar```
 
-### Executer l'archive pour le Master 
 
-```java -jar Master.jar```
 
 
 
@@ -67,7 +58,9 @@ Et insuite faut aller dans docs/index.html pour consulter la documentation
 
 
 
+## UML LIVRABLE 1
 
+![DiagrammeUML_Livrable 1.png](../Diagrammes_UML/DiagrammeUML_Livrable 1.png)
 
 
 
@@ -89,9 +82,32 @@ Et insuite faut aller dans docs/index.html pour consulter la documentation
 
 
 
+## UML LIVRABLE 2
   
 
+  ![Livrable2.png](../Diagrammes_UML/Livrable2.png)
  
+  
+
+## LIVRABLE 3
+
+## PRISE EN COMPTE DES REMARQUES DU LIVRABLE 2 :
+
+  - On a maintenant un nombre de compétiteurs ilimité que l'utilisateur peut entrer .
+
+  - On a à présent un seul Main contenant tous les types de compétetions .
+
+  - On a evité les fléches qui se croissent dans le diagramme UML .
+
+  - On a également modifié nos selections ,maintenant elles prennent en parametres un liste de League .
+
+  - On a pas pu faire les tests faute de temps car le rendu est prévu la veille de l'examen.
+
+
+## UML LIVRABLE 3
+
+  ![Livrable3.png](../Diagrammes_UML/Livrable3.png)
+
   
     
 
